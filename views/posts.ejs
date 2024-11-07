@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UserPosts</title>
+  <link rel="stylesheet" href="/posts.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>User Posts</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Posts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% posts.forEach(post => { %>
+          <tr>
+            <td><%- post.post %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

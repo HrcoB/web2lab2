@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/homepage.css" />
+  </head>
+
+  <body>
+    <div>
+
+      <div style="margin-bottom: 0.2%;">
+        <h1>Cross-site scripting (XSS)</h1>
+        <p>Primjer pohranjenog XSS napada, gdje napadač može objaviti poruku sa zlonamjernim kodom npr. &lt;IMG SRC=# onmouseover=&quot;alert(&#39;xxs&#39;)&quot;&gt;
+          <br>Drugi korisnik kada bude pregledavao objave naleti na poruku napadača i zlonamjerni kod se pokrene (u primjeru iz ovog teksta 
+          kada pređe mišem preko slike pojavi se alert s porukom XSS).</p>
+        <form id="postForm" action="/save-post" method="POST">
+          <input type="text" name="xssInput" id="xssInput" placeholder="post..." required />
+          <button type="submit">Objavi</button>
+          <input type="checkbox" name="xssUnSafe" id="xssUnSafe" />
+          <label for="isSafe">Ranjivost uključena</label>
+        </form>
+      </div>
+
+      <div style="margin-bottom: 0.2%;">
+        <form action="/clear-posts" method="POST">
+          <button type="submit">Očisti podatke</button>
+          <a href="/posts">
+            <button type="button">Objave</button>
+          </a>
+        </form>
+
+      </div>
+
+    </div >
+    <div>
+      <div style="margin-bottom: 0.2%;">
+        <h1>Nesigurna pohrana osjetljivih podataka</h1>
+        <p>Osnovni primjer nesigurne pohrane osjetljivih podataka je spremanje lozinke kao čisti tekst. Na poveznici Korisnici prikazuju se podatci
+          o korisnicima iz baze podataka.<br>Kada je ranjivost uključena, lozinka se sprema kao čisti tekst i ako zlonamjerna osoba ima/dobije 
+          pristup bazi podataka može lako saznati lozinku korisnika.
+        </p>
+        <form id="userForm" action="/save-user" method="POST">
+          <input type="text" name="usernameInput" id="usernameInput" placeholder="username..." required />
+          <input type="password" name="passwordInput" id="passwordInput" placeholder="password..." required />
+          <button type="submit">Objavi</button>
+          <input type="checkbox" name="dataUnSafe" id="dataUnSafe" />
+          <label for="dataUnSafe">Ranjivost uključena</label>
+        </form>
+      </div>
+
+      <div style="margin-bottom: 0.2%;">
+        <form action="/clear-users" method="POST">
+          <button type="submit">Očisti podatke</button>
+          <a href="/useres">
+            <button type="button">Korisnici</button>
+          </a>
+        </form>
+
+      </div>
+    </div>
+    
+  </body>
